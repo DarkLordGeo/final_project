@@ -5,7 +5,7 @@ export const queryClient = new QueryClient({
     queries: {
       retry: 1,
       refetchOnWindowFocus: false,
-    refetchIntervalInBackground: false,
+      refetchIntervalInBackground: false,
     
         // cacheTime: 10_000,
         // refetchOnWindowFocus: false,
