@@ -1,8 +1,8 @@
-import Main from "./pages/Main"
+import AppRouter from "./routes/AppRouter"
 
 function App() {
 
-  return <Main />
+  return <AppRouter />
 }
 
 export default App

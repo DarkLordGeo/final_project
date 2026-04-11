@@ -2,8 +2,8 @@
 import { useFetch } from "../api/fetch";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { set_search_key } from "../slices/search";
-import pics from "../../test.json";
-import useDebounce from "../hooks/useDebounce";
+
+import { Link } from "react-router";
 
 const Main = () => {
   const { data, isLoading, isError } = useFetch();
@@ -11,11 +11,7 @@ const Main = () => {
 
   const { searchKey } = useAppSelector((state) => state.searchKey);
 
-  // const debouncedValue = useDebounce(searchKey,300)
-
-  // console.log(debouncedValue);
   console.log(searchKey)
-
   console.log(data, isLoading, isError);
 
   return (
@@ -42,7 +38,7 @@ const Main = () => {
         </div>} 
       {(isLoading && searchKey  )&&
        <div className="w-full flex items-center justify-center py-6">
-        <h1 className="text-2xl font-bold ">Loading...</h1>
+        <h1 className="text-2xl font-bold text-center">Loading...</h1>
         </div>} 
 
         <div className="columns-2 md:columns-3 gap-4 w-full ">
@@ -56,13 +52,16 @@ const Main = () => {
               src: { original: string };
               alt: string;
             }) => (
-              <div key={id}>
-                <img
-                  className="mb-4 h-auto max-w-full rounded-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer"
-                  src={original}
-                  alt={alt}
-                />
-              </div>
+              <Link to={`/${id}`} >
+                <div key={id}>
+                  <img
+                    
+                    className="mb-4 h-auto max-w-full rounded-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer"
+                    src={original}
+                    alt={alt}
+                  />
+                </div>
+              </Link>
             )
           )}
           {/* {pics.map(

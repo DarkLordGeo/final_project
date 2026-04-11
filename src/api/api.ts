@@ -20,5 +20,9 @@ export const getImages  = async (search_term ?: string) => {
         return res.data
 
     // /v1/curated?per_page=15'
+}
 
+export const getPhoto = async(id?:number) => {
+    const res = await api.get(`/v1/photos/${id}`)
+    return res.data
 }
