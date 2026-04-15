@@ -9,7 +9,6 @@ const AppRouter = () => {
         <Routes>
             <Route path='/' element={<Main />} />
             <Route path='/:id' element={<PicturePage />} />
-
         </Routes>
     </>
   )
