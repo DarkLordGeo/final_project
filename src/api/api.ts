@@ -21,7 +21,6 @@ export const getImages = async (
     }
     const res = await api.get(`/v1/curated?page=${page_number}&per_page=20`)
     return res.data
-    // /v1/curated?per_page=15'
 }
 
 
