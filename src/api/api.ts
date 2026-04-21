@@ -9,16 +9,14 @@ export const api = axios.create({
 })
 
 export const getImages = async (
-    search_term?: string,
-
+    // search_term?: string,
     page_number?: number) => {
 
-    // console.log(search_term, 'getImages search term')
 
-    if (search_term !== '') {
-        const res = await api.get(`/v1/search?query=${search_term?.toLowerCase()}`)
-        return res.data
-    }
+    // if (search_term !== '') {
+    //     const res = await api.get(`/v1/search?query=${search_term?.toLowerCase()}`)
+    //     return res.data
+    // }
     const res = await api.get(`/v1/curated?page=${page_number}&per_page=20`)
     return res.data
 }
