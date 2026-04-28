@@ -5,9 +5,9 @@ const searchSlice = createSlice({
     name: 'searchSlice',
     initialState: { searchKey: '', page: 0 },
     reducers: {
-        set_search_key: (state, action) => {
-            state.searchKey = action.payload
-        },
+            set_search_key: (state, action) => {
+                state.searchKey = action.payload
+            },
         next_page: (state) => {
             state.page += 1
         }

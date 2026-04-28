@@ -1,25 +1,24 @@
 // import apiClient from 'api'
-import { useQuery, keepPreviousData, useInfiniteQuery } from "@tanstack/react-query";
+import { useQuery,  useInfiniteQuery } from "@tanstack/react-query";
 import { getImage, getImages } from "./api";
 import { useAppSelector } from '../hooks'
 
 export const useFetch = () => {
-    const { searchKey } = useAppSelector((state) => state.searchKey)
-    const { page } = useAppSelector((state) => state.searchKey)
+    const {searchKey} = useAppSelector((state) => state.searchKey)
 
-    const { isPending, isError, error, data, isFetching, isPlaceholderData } = useQuery({
-        queryKey: ['data', page],
-        queryFn: () => getImages(page),
-        // placeholderData: keepPreviousData,
-        placeholderData: keepPreviousData,
-        // gcTime: 1000 * 60 * 10,
-        // staleTime: 1000 * 60 * 5
+    const {data, isLoading,fetchNextPage,hasNextPage,isRefetching,isFetchingNextPage} = useInfiniteQuery({
+      queryKey:['data',searchKey],
+      queryFn:({pageParam}) => getImages(pageParam,searchKey),
+      initialPageParam:1,
+      getNextPageParam: (lastPage) => lastPage.page + 1 ,
+      // getPreviousPageParam:(firstPage) => firstPage.next_page
     })
-
     return {
-        isPending, isError, error, data, isFetching, isPlaceholderData
+        data,isLoading,fetchNextPage,hasNextPage,isRefetching,isFetchingNextPage
     }
 }
+
+
 
 
 
