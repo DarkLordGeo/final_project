@@ -12,7 +12,7 @@ export const getImages = async ( page_number: number, search_term ?: string) => 
         const res = await api.get(`/v1/search?query=${search_term?.toLowerCase()}`)
         return res.data
     }
-    const res = await api.get(`/v1/curated?page=${page_number}&per_page=10`)
+    const res = await api.get(`/v1/curated?page=${page_number}&per_page=20`)
     return res.data
 }
 
