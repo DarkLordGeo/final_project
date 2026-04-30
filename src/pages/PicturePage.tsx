@@ -1,6 +1,5 @@
-import React from 'react'
 import { Link, useParams } from 'react-router'
-import { useFetchImage } from '../api/fetch';
+import { useFetchImage } from '../hooks/useFetchImage';
 
 const PicturePage = () => {
 

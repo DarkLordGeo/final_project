@@ -1,4 +1,4 @@
-import { useFetch } from "../api/fetch";
+import { useFetch } from "../hooks/useFetch";
 import { Link } from "react-router";
 import useBottomIndicator from "../hooks/useBottomIndicator";
 import { useEffect } from "react";
